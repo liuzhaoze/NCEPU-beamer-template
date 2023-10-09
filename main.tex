@@ -1,0 +1,202 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[UTF8, heading]{ctex} % 中文支持
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{svg}          % 插入 svg 矢量图
+\usepackage{tikz}         % 绘图
+\usepackage{subcaption}   % 创建子图
+\usepackage{minted}       % 代码高亮
+\usepackage{algorithm2e}  % 伪代码
+\usepackage{lmodern}      % 消除 warning
+\usepackage{ncepu-beamer} % 应用主题
+
+% 指定 inkscape 路径（inkscape 用于处理 svg 矢量图）
+\setsvg{inkscapeexe={"C:/Program Files/Inkscape/bin/inkscape.com"}}
+% 设置 svg 文字随图片缩放
+\svgsetup{inkscapelatex=false}
+% NOTE: draw.io 中的文本需要关闭自动换行和格式化文本
+
+% 输入信息
+\title{科研题目}
+\subtitle{副标题} % 不需要副标题可以直接删掉
+\author{报告人}
+\institute{控制与计算机工程学院}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+
+    \titlepage
+
+\end{frame}
+
+\begin{frame}{目录}
+
+    \centering
+    \begin{minipage}{0.8\textwidth}
+        \tableofcontents
+    \end{minipage}
+
+\end{frame}
+
+% 从这里开始你的创作
+
+\section{这是第一部分}
+
+\begin{frame}{图文分列}
+
+    \begin{columns}
+        \column{0.4\textwidth}
+
+        这是有编号的列表：
+        \begin{enumerate}
+            \item 使用 columns 环境
+            \item 使用 column 命令调整比例
+            \item 这里是一个插入 svg 矢量图的例子
+        \end{enumerate}
+
+        \column{0.6\textwidth}
+
+        \begin{figure}
+            \centering
+            \includesvg[width=\textwidth]{pics/example_img.svg}
+            \caption{这里写图片的名字}
+        \end{figure}
+
+    \end{columns}
+
+\end{frame}
+
+\section{这是第二部分}
+
+\subsection{这是第二部分的第一小节}
+
+\begin{frame}{frame 的主标题}{frame 的副标题}
+
+    这是一个嵌套列表：
+
+    \begin{itemize}
+        \item 111
+        \item 222
+        \item 333
+              \begin{itemize}
+                  \item 3.111
+                  \item 3.222
+              \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\subsection{这是第二部分的第二小节}
+
+\begin{frame}{写点数学公式}
+
+    当观察次数 $n \rightarrow \infty$ 时，表示在单位时间内持续观察用户提交任务的过程：
+
+    \begin{equation*}
+        \begin{split}
+            P\left\{X=k\right\} & = \lim_{n \rightarrow \infty} C_n^k \, p^k (1-p)^{n-k}                                                                                                                              \\
+            & = \lim_{n \rightarrow \infty} \frac{n(n-1)\dots(n-(k-1))}{k!} \left(\frac{\lambda}{n}\right)^k \left(1-\frac{\lambda}{n}\right)^{n-k}                                               \\
+            & = \frac{\lambda^k}{k!} \lim_{n \rightarrow \infty} \frac{n(n-1)\dots(n-(k-1))}{n^k} \left(1-\frac{\lambda}{n}\right)^{-k} \colorbox{yellow}{$\left(1-\frac{\lambda}{n}\right)^{n}$} \\
+            & = \frac{\lambda^k}{k!} \colorbox{yellow}{$e^{-\lambda}$}
+        \end{split}
+    \end{equation*}
+
+    此时单位时间内\textcolor{blue}{实际}提交的任务数量 $X$ 服从泊松分布 $X \sim P(\lambda)$ 。
+
+\end{frame}
+
+\subsection{这是第二部分的第三小节}
+
+\begin{frame}{block 示例}
+
+    记 $[0,t]$ 时间段内用户提交的任务数量为 $N(t)$ ，$(s,t]$ 时间段内用户提交的任务数量为 $N(s,t] = N(t) - N(s)$ 。
+
+    \begin{block}{泊松过程}
+        \begin{itemize}
+            \item $N(0)=0$：初始时刻没有用户提交任务
+            \item 独立增量性：在互不相交的时间段内，用户提交任务的数量相互独立
+            \item 平稳增量性：在长度相等的时间段 $t$ 内，任务提交数量服从相同的概率分布 $P(\lambda t)$
+        \end{itemize}
+    \end{block}
+
+    因此 $\forall s, N(s,s+t] \sim P(\lambda t)$ ：
+    $$P\left\{N(s,s+t]=k\right\} = \frac{(\lambda t)^k}{k!} e^{-\lambda t}$$
+
+\end{frame}
+
+\section{这是第三部分}
+
+\input{src/example_of_tikz.tex}
+
+\section{这是第四部分}
+
+\begin{frame}[fragile]{试试代码高亮}{记得加 fragile 参数}
+
+    这个字是正常大小
+
+    \scriptsize
+    \begin{minted}{python3}
+        # scriptsize 命令变成脚本大小
+        # 生成时间间隔
+        intervalT = stats.expon.rvs(scale=1 / lamda, size=self.jobNum)
+        # 对时间间隔累加得到提交时间
+        self.arrival_Times = np.around(intervalT.cumsum(), decimals=3)
+    \end{minted}
+
+    \normalsize
+    又恢复了正常大小
+
+    \scriptsize
+    \begin{minted}{python3}
+        # 又变成了脚本大小
+        self.jobsMI = np.random.normal(self.jobMI, self.jobMI_std, self.jobNum)
+        self.jobsMI = self.jobsMI.astype(int)
+    \end{minted}
+
+\end{frame}
+
+\section{这是第五部分}
+
+\begin{frame}[shrink=5]{最后试试伪代码}{shrink 参数调整 frame 的缩小系数}
+
+    \scriptsize % 字太大了调小点
+    \begin{algorithm}[H]
+        \SetAlgoLined
+        设定环境参数、DRL超参数，随机初始化DQN参数，赋予target网络相同的参数\;
+        \ForEach{Episode}{
+            重置环境\;
+            \ForEach{Step}{
+                对于状态 $s_t$ 根据 $\epsilon$-greedy 策略得到动作 $a_t$\;
+                执行动作 $a_t$ 后环境变为 $s_{t+1}$ 并得到奖励 $r_t$\;
+                将轨迹 $(s_t, a_t, r_t, s_{t+1})$ 存入replay memory\;
+                \If{Step $>$ 开始学习步数}{
+                    从replay memory中随机抽取 $30$ 个样本作为minibatch\;
+                    \ForEach{sample in minibatch}{
+                        将 $s_t$ 传入Q-network得到 $a_t$ 对应的 $Q_{value}$\;
+                        将 $s_{t+1}$ 传入target-network得到输出的最大值 $Q_{target}$\;
+                        根据损失函数 $Loss = (Q_{value} - (r_t + \gamma \cdot Q_{target}))^2$ 使用梯度下降法更新Q-network\;
+                    }
+                    \If{Step \% 50 = 0}{
+                        使用Q-network的参数更新target-network\;
+                    }
+                    减小 $\epsilon$\;
+                }
+            }
+        }
+    \end{algorithm}
+
+\end{frame}
+
+\begin{frame}
+
+    \centering
+    \Huge
+    \usefont{OT1}{pzc}{m}{n}
+    Thanks for listening!
+
+\end{frame}
+
+\end{document}

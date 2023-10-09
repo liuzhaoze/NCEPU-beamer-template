@@ -1,0 +1,75 @@
+\useoutertheme{infolines}
+\useinnertheme{circles}
+\usecolortheme{orchid}
+\usefonttheme{professionalfonts} % 数学公式使用带衬线字体
+
+% 定义颜色
+\definecolor{NCEPUblue}{RGB}{0,80,153}
+\definecolor{NCEPUblueDark}{RGB}{0,50,100}
+
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.65ex,dp=1.5ex]{section in head/foot}%
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=1ex,rightskip=2ex]{}%
+            \hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+% 配色
+\setbeamercolor{palette tertiary}{bg=NCEPUblue}
+% \setbeamercolor{palette secondary}{bg=NCEPUblue!85}
+% \setbeamercolor{palette primary}{bg=NCEPUblue!35}
+\setbeamercolor{title}{fg=NCEPUblue}
+\setbeamercolor{frametitle}{fg=NCEPUblue}
+\setbeamercolor{section number projected}{bg=NCEPUblue,fg=white}
+\setbeamercolor{section in toc}{fg=NCEPUblueDark}
+\setbeamercolor{subsection in toc}{fg=NCEPUblue}
+
+% 标题样式
+\setbeamertemplate{frametitle}[default][center]
+
+% LOGO
+\addtobeamertemplate{footline}{
+    \setlength\unitlength{1ex}
+    \begin{picture}(0,0)
+        % \put{} 确定 LOGO 的位置
+        \put(0.25,82.5){\makebox(0,0)[bl]{
+                \includegraphics[width=3cm]{pics/logo.png}
+            }}
+    \end{picture}
+}{}
+
+% block 样式
+% \setbeamercolor{block title}{bg=PurpleBlue,fg=white}
+% \setbeamercolor{block body}{bg=blue!10,fg=black}
+
+% 章节前目录样式
+\AtBeginSection{
+    \begin{frame}
+        \centering
+        \begin{minipage}{0.8\textwidth}
+            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/hide/hide,subsubsectionstyle=hide/hide/hide]
+        \end{minipage}
+    \end{frame}
+}
+\AtBeginSubsection{
+    \begin{frame}
+        \centering
+        \begin{minipage}{0.8\textwidth}
+            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide/hide/hide]
+        \end{minipage}
+    \end{frame}
+}

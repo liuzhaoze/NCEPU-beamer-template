@@ -1,0 +1,14 @@
+# LaTeX auxiliary files
+_minted-*
+svg-inkscape
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
