@@ -8,7 +8,7 @@
 \definecolor{NCEPUblueDark}{RGB}{0,50,100}
 
 \setbeamertemplate{headline}
-{
+{%
     \leavevmode%
     \hbox{%
         \begin{beamercolorbox}[wd=\paperwidth,ht=2.65ex,dp=1.5ex]{section in head/foot}%
@@ -18,7 +18,7 @@
 }
 
 \setbeamertemplate{footline}
-{
+{%
     \leavevmode%
     \hbox{%
         \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=1ex,rightskip=2ex]{}%
@@ -42,14 +42,14 @@
 \setbeamertemplate{frametitle}[default][center]
 
 % LOGO
-\addtobeamertemplate{footline}{
+\addtobeamertemplate{headline}{
     \setlength\unitlength{1ex}
     \begin{picture}(0,0)
         % \put{} 确定 LOGO 的位置
-        \put(0.25,82.5){\makebox(0,0)[bl]{
+        \put(0,-10){\makebox(0,0)[bl]{
                 \includegraphics[width=3cm]{pics/logo.png}
             }}
-    \end{picture}
+    \end{picture}%
 }{}
 
 % block 样式
