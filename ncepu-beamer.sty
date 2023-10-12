@@ -56,6 +56,13 @@
 % \setbeamercolor{block title}{bg=PurpleBlue,fg=white}
 % \setbeamercolor{block body}{bg=blue!10,fg=black}
 
+% 脚注样式
+\setbeamertemplate{footnote}{
+    \parindent 1em\noindent%
+    \raggedright
+    \hbox to 0.5em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
 % 章节前目录样式
 \AtBeginSection{
     \begin{frame}
