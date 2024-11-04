@@ -1,6 +1,6 @@
 \documentclass[aspectratio=169]{beamer}
 
-\usepackage[UTF8, heading]{ctex} % 中文支持
+\usepackage[UTF8,heading,fontset=none]{ctex} % 中文支持
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{svg}          % 插入 svg 矢量图
@@ -10,6 +10,18 @@
 \usepackage{algorithm2e}  % 伪代码
 \usepackage{lmodern}      % 消除 warning
 \usepackage{ncepu-beamer} % 应用主题
+
+% --------------- 字体设置 --------------- %
+%% 配置方式见 README.md
+%% 初次使用时可以先不设置字体，编译通过后再逐步配置
+\usepackage{fontspec}
+\setmainfont{HarmonyOS Sans}
+\setsansfont{HarmonyOS Sans}
+\setmonofont{CodeNewRoman Nerd Font}
+\setCJKmainfont{HarmonyOS Sans SC}
+\setCJKsansfont{HarmonyOS Sans SC}
+\setCJKmonofont{HarmonyOS Sans SC}
+% --------------- 字体设置 --------------- %
 
 % 指定 inkscape 路径（inkscape 用于处理 svg 矢量图）
 \setsvg{inkscapeexe={"C:/Program Files/Inkscape/bin/inkscape.com"}}
