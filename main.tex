@@ -23,11 +23,16 @@
 \setCJKmonofont{HarmonyOS Sans SC}
 % --------------- 字体设置 --------------- %
 
-% 指定 inkscape 路径（inkscape 用于处理 svg 矢量图）
-\setsvg{inkscapeexe={"C:/Program Files/Inkscape/bin/inkscape.com"}}
-% 设置 svg 文字随图片缩放
-\svgsetup{inkscapelatex=false}
-% NOTE: draw.io 中的文本需要关闭自动换行和格式化文本
+% --------------- svg 设置 --------------- %
+\setsvg{
+    %% 设置 inkscape 路径（inkscape 用于处理 svg 矢量图）
+    inkscapeexe={"C:/Program Files/Inkscape/bin/inkscape.com"}, % Windows
+    % inkscapeexe={"/usr/bin/inkscape"}, % Linux
+    %% 设置 svg 文字随图片缩放
+    inkscapelatex=false
+}
+%% NOTE: draw.io 中的文本需要关闭自动换行和格式化文本
+% --------------- svg 设置 --------------- %
 
 % 输入信息
 \title{科研题目}
