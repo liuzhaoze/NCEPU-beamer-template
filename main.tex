@@ -1,19 +1,18 @@
 \documentclass[aspectratio=169]{beamer}
-
 \usepackage[UTF8,heading,fontset=none]{ctex} % 中文支持
+\usepackage{ncepu-beamer} % 应用主题
+
 \usepackage{color}
 \usepackage{amsmath}
-\usepackage{svg}          % 插入 svg 矢量图
-\usepackage{tikz}         % 绘图
-\usepackage{subcaption}   % 创建子图
-\usepackage{minted}       % 代码高亮
-\usepackage{algorithm2e}  % 伪代码
-\usepackage{lmodern}      % 消除 warning
-\usepackage{ncepu-beamer} % 应用主题
+\usepackage{tikz}        % 绘图
+\usepackage{minted}      % 代码高亮
+\usepackage{subcaption}  % 创建子图
+\usepackage{algorithm2e} % 伪代码
 
 % --------------- 字体设置 --------------- %
 %% 配置方式见 README.md
-%% 初次使用时可以先不设置字体，编译通过后再逐步配置
+%% 如果不想使用自定义字体，可以注释掉下面的设置
+%% 并且删除 ctex 包的 `fontset=none` 选项
 \usepackage{fontspec}
 \setmainfont{HarmonyOS Sans}
 \setsansfont{HarmonyOS Sans}
@@ -24,6 +23,7 @@
 % --------------- 字体设置 --------------- %
 
 % --------------- svg 设置 --------------- %
+\usepackage[notransparent]{svg} % 插入 svg 矢量图
 \setsvg{
   %% 设置 inkscape 路径（inkscape 用于处理 svg 矢量图）
   inkscapeexe={"C:/Program Files/Inkscape/bin/inkscape.com"}, % Windows

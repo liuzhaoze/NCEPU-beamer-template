@@ -1,10 +1,16 @@
 # NCEPU-beamer-template
 
-> 华北电力大学Beamer/LaTeX汇报模板
+> 华北电力大学 Beamer/LaTeX 汇报模板
 
-如需插入 SVG 矢量图，请先下载 [Inkscape](https://inkscape.org/zh-hans/) ；否则注释掉 main.tex 中与 svg 相关的包和配置（第 6 、15 、17 行）
+如需插入 SVG 矢量图，请先下载 [Inkscape](https://inkscape.org/zh-hans/) ；否则注释掉 main.tex 中与 svg 设置部分的代码。
 
 可下载 main.pdf 预览效果
+
+推荐使用 VSCode 的 [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) 插件进行编辑，使用 [tex-fmt](https://github.com/WGUNDERWOOD/tex-fmt?tab=readme-ov-file#cargo) 进行代码格式化。在 `settings.json` 中启用 `tex-fmt`：
+
+```json
+"latex-workshop.formatting.latex": "tex-fmt"
+```
 
 ## minted 包编译错误修复
 
