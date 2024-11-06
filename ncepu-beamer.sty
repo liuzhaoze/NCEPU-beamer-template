@@ -9,24 +9,24 @@
 
 \setbeamertemplate{headline}
 {%
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=\paperwidth,ht=2.65ex,dp=1.5ex,center]{section in head/foot}%
-            % \usebeamerfont{title in head/foot}\color{white}\insertshorttitle% 在 headline 中显示标题（将该行取消注释时显示）
-        \end{beamercolorbox}%
-    }%
-    \vskip0pt%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.65ex,dp=1.5ex,center]{section in head/foot}%
+      % \usebeamerfont{title in head/foot}\color{white}\insertshorttitle% 在 headline 中显示标题（将该行取消注释时显示）
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
 }
 
 \setbeamertemplate{footline}
 {%
-    \leavevmode%
-    \hbox{%
-        \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=1ex,rightskip=2ex]{}%
-            \hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}
-        \end{beamercolorbox}%
-    }%
-    \vskip0pt%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=1ex,rightskip=2ex]{}%
+      \hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
 }
 
 % 配色
@@ -44,13 +44,13 @@
 
 % LOGO
 \addtobeamertemplate{headline}{
-    \setlength\unitlength{1ex}
-    \begin{picture}(0,0)
-        % \put{} 确定 LOGO 的位置
-        \put(0,-10){\makebox(0,0)[bl]{
-                \includegraphics[width=3cm]{img/logo.png}
-            }}
-    \end{picture}%
+  \setlength\unitlength{1ex}
+  \begin{picture}(0,0)
+    % \put{} 确定 LOGO 的位置
+    \put(0,-10){\makebox(0,0)[bl]{
+        \includegraphics[width=3cm]{img/logo.png}
+    }}
+  \end{picture}%
 }{}
 
 % block 样式
@@ -59,25 +59,25 @@
 
 % 脚注样式
 \setbeamertemplate{footnote}{
-    \parindent 1em\noindent%
-    \raggedright
-    \hbox to 0.5em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+  \parindent 1em\noindent%
+  \raggedright
+  \hbox to 0.5em{\hfil\insertfootnotemark}\insertfootnotetext\par%
 }
 
 % 章节前目录样式
 \AtBeginSection{
-    \begin{frame}
-        \centering
-        \begin{minipage}{0.8\textwidth}
-            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/hide/hide,subsubsectionstyle=hide/hide/hide]
-        \end{minipage}
-    \end{frame}
+  \begin{frame}
+    \centering
+    \begin{minipage}{0.8\textwidth}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/hide/hide,subsubsectionstyle=hide/hide/hide]
+    \end{minipage}
+  \end{frame}
 }
 \AtBeginSubsection{
-    \begin{frame}
-        \centering
-        \begin{minipage}{0.8\textwidth}
-            \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide/hide/hide]
-        \end{minipage}
-    \end{frame}
+  \begin{frame}
+    \centering
+    \begin{minipage}{0.8\textwidth}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide/hide/hide]
+    \end{minipage}
+  \end{frame}
 }
