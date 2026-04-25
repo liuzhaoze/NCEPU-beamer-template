@@ -1,5 +1,5 @@
 # LaTeX auxiliary files
-_minted-*
+_minted
 svg-inkscape
 *.aux
 *.fdb_latexmk
