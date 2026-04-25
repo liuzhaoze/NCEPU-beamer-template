@@ -4,10 +4,10 @@
 
 \usepackage{color}
 \usepackage{amsmath}
-\usepackage{tikz}        % 绘图
-\usepackage{minted}      % 代码高亮
-\usepackage{subcaption}  % 创建子图
-\usepackage{algorithm2e} % 伪代码
+\usepackage{tikz}           % 绘图
+\usepackage{minted}         % 代码高亮
+\usepackage{subcaption}     % 创建子图
+\usepackage{algpseudocodex} % 伪代码
 
 % --------------- 字体设置 --------------- %
 %% 配置方式见 README.md
@@ -177,33 +177,41 @@
 
 \section{这是第五部分}
 
-\begin{frame}[shrink=5]{最后试试伪代码}{shrink 参数调整 frame 的缩小系数}
+\begin{frame}{最后试试伪代码}
 
   \scriptsize % 字太大了调小点
-  \begin{algorithm}[H]
-    \SetAlgoLined
-    设定环境参数、DRL超参数，随机初始化DQN参数，赋予target网络相同的参数\;
-    \ForEach{Episode}{
-      重置环境\;
-      \ForEach{Step}{
-        对于状态 $s_t$ 根据 $\epsilon$-greedy 策略得到动作 $a_t$\;
-        执行动作 $a_t$ 后环境变为 $s_{t+1}$ 并得到奖励 $r_t$\;
-        将轨迹 $(s_t, a_t, r_t, s_{t+1})$ 存入replay memory\;
-        \If{Step $>$ 开始学习步数}{
-          从replay memory中随机抽取 $30$ 个样本作为minibatch\;
-          \ForEach{sample in minibatch}{
-            将 $s_t$ 传入Q-network得到 $a_t$ 对应的 $Q_{value}$\;
-            将 $s_{t+1}$ 传入target-network得到输出的最大值 $Q_{target}$\;
-            根据损失函数 $Loss = (Q_{value} - (r_t + \gamma \cdot Q_{target}))^2$ 使用梯度下降法更新Q-network\;
-          }
-          \If{Step \% 50 = 0}{
-            使用Q-network的参数更新target-network\;
-          }
-          减小 $\epsilon$\;
-        }
-      }
-    }
-  \end{algorithm}
+  \begin{algorithmic}[1]
+    \setlength{\itemsep}{0.2em} % 调整行距
+    % tex-fmt: off
+    \State 设定环境参数、DRL超参数，随机初始化DQN参数，赋予target网络相同的参数
+
+    \For{each episode}
+      \State 重置环境
+
+      \For{each step}
+        \State 对于状态 $s_t$ 根据 $\epsilon$-greedy 策略得到动作 $a_t$
+        \State 执行动作 $a_t$ 后环境变为 $s_{t+1}$ 并得到奖励 $r_t$
+        \State 将轨迹 $(s_t, a_t, r_t, s_{t+1})$ 存入replay memory
+
+        \If{step $>$ 开始学习步数}
+          \State 从replay memory中随机抽取 $30$ 个样本作为 minibatch
+
+          \For{each sample in minibatch}
+            \State 将 $s_t$ 传入Q-network得到 $a_t$ 对应的 $Q_{value}$
+            \State 将 $s_{t+1}$ 传入target-network得到输出的最大值 $Q_{target}$
+            \State 根据损失函数 $Loss = (Q_{value} - (r_t + \gamma \cdot Q_{target}))^2$ 使用梯度下降法更新Q-network
+          \EndFor
+
+          \If{step \% 50 = 0}
+            \State 使用Q-network的参数更新target-network
+          \EndIf
+
+          \State 减小 $\epsilon$
+        \EndIf
+      \EndFor
+    \EndFor
+    % tex-fmt: on
+  \end{algorithmic}
 
 \end{frame}
 
